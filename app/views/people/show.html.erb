@@ -1,2 +1,15 @@
-<h1>People#show</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+<h1>This is what you have submited:</h1>
+<p>First Name: <%= @person.first_name %></p>
+<p>Last Name: <%= @person.last_name %></p>
+<p>Email: <%= @person.email %></p>
+<p>Country: <%= @person.country.name %> </p>
+<p>City: <%= @person.city.name %> </p>
+
+<%= form_for(@person) do |f| %>
+  <%= hidden_field :person, :first_name %> 
+  <%= hidden_field :person, :last_name %> 
+  <%= hidden_field :person, :email %>  
+  <%= hidden_field :person,:country_id %> 
+  <%= hidden_field :person, :city_id %> 
+  <%= f.submit "Confirm", name: "confirmed" %>
+<% end %>
